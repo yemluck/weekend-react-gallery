@@ -1,0 +1,15 @@
+/* .Image {
+    flex: 33.33%;
+    padding: 5px;
+    
+} */
+
+/* .Row {
+    display: grid
+} */
+
+.Row {
+    display: inline-block;
+    margin: 40px;
+   
+}

@@ -4,6 +4,7 @@ import './App.css';
 import Header from '../Header/Header'
 import '../Header/Header.css'
 import { useState, useEffect } from 'react';
+import GalleryList from '../GalleryList/GalleryList'
 
 function App() {
 
@@ -30,9 +31,11 @@ console.log('galleryList', galleryList);
     return (
       <div className="App">
         <Header />
+        <GalleryList galleryList={galleryList} />
         {/* <p>Gallery goes here</p>
         <img src="images/goat_small.jpg"/> */}
       </div>
+      
     );
 }
 

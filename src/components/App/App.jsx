@@ -8,13 +8,14 @@ import GalleryList from '../GalleryList/GalleryList'
 
 function App() {
 
+  // import useEffect so fetchGalleryList is called once... remember empty array
   useEffect(() => {
     fetchGalleryList();
   }, [])
 
 
 
-
+// set useState to empty array to prevent rendering error on first run
 const [galleryList, setGalleryList] = useState([])
 
 const fetchGalleryList = () => {
@@ -32,7 +33,8 @@ const fetchGalleryList = () => {
 
     axios.put(`/gallery/like/${id}`, galleryItem)
       .then(res => {
-        fetchGalleryList();
+        // send put and update State
+        fetchGalleryList(); 
       })
       .catch(err => {
         console.log('PUT /like failed', err)

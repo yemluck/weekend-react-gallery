@@ -12,6 +12,9 @@ function App() {
     fetchGalleryList();
   }, [])
 
+
+
+
 const [galleryList, setGalleryList] = useState([])
 
 const fetchGalleryList = () => {
@@ -24,6 +27,18 @@ const fetchGalleryList = () => {
           })
 }
 
+  const updateLikes = (id, galleryItem) => {
+    console.log('in updateLikes', id, galleryItem);
+
+    axios.put(`/gallery/like/${id}`, galleryItem)
+      .then(res => {
+        fetchGalleryList();
+      })
+      .catch(err => {
+        console.log('PUT /like failed', err)
+      })
+
+  }
 
 console.log('galleryList', galleryList);
 
@@ -31,9 +46,11 @@ console.log('galleryList', galleryList);
     return (
       <div className="App">
         <Header />
-        <GalleryList galleryList={galleryList} />
-        {/* <p>Gallery goes here</p>
-        <img src="images/goat_small.jpg"/> */}
+        <GalleryList 
+            galleryList={galleryList} 
+            onClick={updateLikes}
+         />
+     
       </div>
       
     );
